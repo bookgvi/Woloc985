@@ -46,6 +46,7 @@ export default {
     },
     onReset () {
       this.$app.filters.reset(this.name)
+      this.$root.$emit('reloadFilterMethod')
     }
   }
 }
