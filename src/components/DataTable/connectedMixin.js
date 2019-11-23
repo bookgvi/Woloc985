@@ -16,6 +16,9 @@ export default {
   methods: {
     async onRequest (pagination, filter) {
       if (!filter) return
+      if (this.$route.path.split('/')[1] === 'settings') {
+        if (!filter.studio) return
+      }
       const { page, rowsPerPage } = pagination
       let { items, total, transactions, account } = await this.loadData({ number: page, size: rowsPerPage }, filter)
       if (transactions) {
